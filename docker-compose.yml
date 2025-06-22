@@ -1,0 +1,18 @@
+services:
+  postgres:
+    image: postgres
+    container_name: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_DB: atacadao
+    ports:
+      - "5432:5432"
+  wildfly:
+    build: .
+    container_name: wildfly
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./deploy:/opt/wildfly/standalone/deployments/

@@ -1,0 +1,26 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+
+<web-app>
+  <display-name>Sistema de Estoque</display-name>
+
+  <!-- Página de erro para 404 (recurso não encontrado) -->
+  <error-page>
+    <error-code>404</error-code>
+    <location>/erro.jsp</location>
+  </error-page>
+
+  <!-- Página de erro para erro interno do servidor -->
+  <error-page>
+    <error-code>500</error-code>
+    <location>/erro.jsp</location>
+  </error-page>
+
+  <!-- Página para exceções não tratadas -->
+  <error-page>
+    <exception-type>java.lang.Throwable</exception-type>
+    <location>/erro.jsp</location>
+  </error-page>
+</web-app>
