@@ -30,7 +30,7 @@
         <form method="POST" action="<%=request.getContextPath()%>/loginServlet" class="form">
             <label for="cnpj">CNPJ:</label>
             <input id="cnpj" name="cnpj" type="text" placeholder="*" required><br>
-            <label for="nome">Senha: </label>
+            <label for="nome">Nome: </label>
             <input id="nome" name="nome" type="text" placeholder="*" required><br>
             <label for="senha">Senha: </label>
             <input id="senha" name="senha" type="password" placeholder="*" required><br>

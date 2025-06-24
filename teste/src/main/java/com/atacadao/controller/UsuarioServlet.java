@@ -88,12 +88,12 @@ public class UsuarioServlet extends HttpServlet {
                         req.getRequestDispatcher("/WEB-INF/perfil.jsp").forward(req, resp);
                         return;
                     }
-
+                    n_celular = UsuarioService.formatarCelular(n_celular);
                     Usuario u = (Usuario) session.getAttribute("usuario");
                     u.setCelular(n_celular);
                     u.setEmail(n_email);
                     u.setNome(n_nome);
-
+                    
                     boolean sucesso = UsuarioService.alterarUsuario(u);
                     String msg = (sucesso)? "alterações salvas" : "erro ao alterar perfil";
                     req.setAttribute("msg", msg);

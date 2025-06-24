@@ -57,11 +57,11 @@
             <th>Bonificação Atual</th>
           </thead>
           <tbody>
-            <td><c:out value="${sessionScope.gerente.usuario.nome}"/></td>
+            <td><c:out value="${sessionScope.usuario.nome}"/></td>
             <td><c:out value="${sessionScope.usuario.cpf}"/></td>
             <td><c:out value="${sessionScope.usuario.salario}"/></td>
-            <td><c:out value="${sessionScope.gerente.usuario.email}"/></td>
-            <td><c:out value="${sessionScope.gerente.usuario.celular}"/></td>
+            <td><c:out value="${sessionScope.usuario.email}"/></td>
+            <td><c:out value="${sessionScope.usuario.celular}"/></td>
             <td><c:out value="${sessionScope.gerente.bonificacao}"/></td>
           </tbody>
         </table>
