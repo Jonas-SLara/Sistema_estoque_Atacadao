@@ -91,7 +91,7 @@ a{
     text-align: center;
     padding: 8px;
     text-shadow: white 2px 2px;
-   
+
 }
 
 .btn{
@@ -113,7 +113,7 @@ a{
 }
 
 main{
-    padding-top: 15vh; 
+    padding-top: 15vh;
 }
 
 .content_layout{
@@ -151,15 +151,15 @@ main{
     background: white;
     border-radius: 8px;
 }
-    
+
 .table_model{
-  width: 90%;
-  background: white;
-  border-radius: 10px;
-  padding: 6px;
-  border-collapse: collapse;
-  font-weight: 500;
-  color: rgb(20,20,20);  
+    width: 90%;
+    background: white;
+    border-radius: 10px;
+    padding: 6px;
+    border-collapse: collapse;
+    font-weight: 500;
+    color: rgb(20,20,20);
 }
 
 tbody tr:nth-child(even){
@@ -224,3 +224,65 @@ td, tr, th{
     padding: 4px;
     border-radius: 4px;
 }
+
+.section2{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 20vh;
+    padding: 8px;
+    justify-content: flex-start;
+    background: linear-gradient(rgb(0, 0, 0, 0.2), rgb(230, 230, 250));
+    border-radius: 10px;
+    gap: 10px;
+}
+
+.section2 .label{
+    display: flex;
+    justify-content: space-between;
+    background: white;
+    font-size: 1.2em;
+    padding: 2px;
+    border-radius: 4px;
+}
+
+.label div{
+    padding: 2px;
+    width: 40%;
+    background: bisque;
+}
+
+.edit{
+    background: rgb(0,180, 255);
+    color: white;
+    border-radius: 4px;
+    width: 10%;
+    text-align: center;
+}
+
+.section2 form{
+    width: 100%;
+    padding: 8px;
+}
+
+.section2 form label, .section2 form{
+    background: rgb(0,180, 255);
+    color: white;
+    font-size: 1.1em;
+}
+
+.section2 form input{
+    border: none;
+    padding: 4px;
+    background: rgba(255,255,255,0.9);
+    width: 30%
+}
+
+.section2 form button{
+    border: none;
+    padding: 4px;
+    width: 128px;
+    border-radius: 4px;
+    background:white;
+}
+

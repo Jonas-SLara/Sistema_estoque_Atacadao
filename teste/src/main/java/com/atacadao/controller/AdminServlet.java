@@ -33,7 +33,7 @@ public class AdminServlet extends HttpServlet{
             return;
         }
 
-        //Admin a = (Admin) session.getAttribute("adm");
+        Admin a = (Admin) session.getAttribute("adm");
         String acao = req.getParameter("acao");
 
         switch (acao) {
@@ -43,7 +43,9 @@ public class AdminServlet extends HttpServlet{
                 break;
             /*VISITAR O PERFIL DE ADMINISTRADOR */
             case "perfil":
-                req.getRequestDispatcher("/WEB-INF/admin/perfil.jsp").forward(req, resp);
+                req.setAttribute("perfilAdm", a);
+                req.setAttribute("current_page", "perfil");
+                req.getRequestDispatcher("/WEB-INF/admin/homeAdmin.jsp").forward(req, resp);
                 break;
 
             /* CRIAR UMA COLEÇAO DE DADOS DE TODOS OS GERENTES EM UMA LISTA */
@@ -74,6 +76,33 @@ public class AdminServlet extends HttpServlet{
                 resp.sendRedirect(req.getContextPath() + "/");
                 break;
 
+            case "edit_nome":
+                req.setAttribute("edit_opcao", "editarNome");
+                req.setAttribute("perfilAdm", a);
+                req.setAttribute("current_page", "perfil");
+                req.getRequestDispatcher("/WEB-INF/admin/homeAdmin.jsp").forward(req, resp);
+                break;
+
+            case "edit_email":
+                req.setAttribute("edit_opcao", "editarEmail");
+                req.setAttribute("perfilAdm", a);
+                req.setAttribute("current_page", "perfil");
+                req.getRequestDispatcher("/WEB-INF/admin/homeAdmin.jsp").forward(req, resp);
+                break;
+
+            case "edit_telefone":
+                req.setAttribute("edit_opcao", "editarTelefone");
+                req.setAttribute("perfilAdm", a);
+                req.setAttribute("current_page", "perfil");
+                req.getRequestDispatcher("/WEB-INF/admin/homeAdmin.jsp").forward(req, resp);
+                break;
+
+            case "edit_senha":
+                req.setAttribute("edit_opcao", "editarSenha");
+                req.setAttribute("perfilAdm", a);
+                req.setAttribute("current_page", "perfil");
+                req.getRequestDispatcher("/WEB-INF/admin/homeAdmin.jsp").forward(req, resp);
+                break;
             default:
                 resp.sendRedirect(req.getContextPath() + "/adminServlet?acao=voltar");
             break;
