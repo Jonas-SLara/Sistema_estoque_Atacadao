@@ -9,6 +9,9 @@ services:
       POSTGRES_DB: atacadao
     ports:
       - "5432:5432"
+    volumes:
+      - ./dump.sql:/docker-entrypoint-initdb.d/dump.sql
+
   wildfly:
     build: .
     container_name: wildfly
