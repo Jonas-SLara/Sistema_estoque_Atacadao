@@ -6,10 +6,11 @@ import java.sql.SQLException;
 
 public class Conexao {
     //caso rode na maquina local com o postgres instalado ou via docker
-    private static final String URL = "jdbc:postgresql://localhost:5432/atacadao";
+    //private static final String URL = "jdbc:postgresql://localhost:5432/atacadao";
 
-    //caso rode a aplicação na mesma rede que o docker, com o compose do wildfly e postgres
-    //private static final String URL = "jdbc:postgresql://postgres:5432/atacadao";
+    //caso rode a aplicação em um container na mesma rede, usar o nome do container do postgres
+    //neste caso é postgres mesmo
+    private static final String URL = "jdbc:postgresql://postgres:5432/atacadao";
     private static final String USUARIO = "postgres";
     private static final String SENHA = "1234";
 

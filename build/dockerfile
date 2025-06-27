@@ -1,0 +1,47 @@
+FROM alpine:3.20
+
+# Variáveis
+ENV MAVEN_VERSION=3.9.6
+ENV JAVA_VERSION=21
+ENV WILDFLY_VERSION=30.0.0.Final
+ENV WILDFLY_HOME=/opt/wildfly
+
+# Instalar dependências do sistema
+RUN apk update && apk add --no-cache \
+  curl \
+  unzip \
+  git \
+  bash \
+  openjdk21 \
+  maven
+
+# Configurar JAVA_HOME
+ENV JAVA_HOME=/usr/lib/jvm/java-21-openjdk
+ENV PATH="$JAVA_HOME/bin:$PATH"
+
+# Clonar projeto do GitHub
+WORKDIR /app
+RUN git clone https://github.com/Jonas-SLara/Sistema_estoque_Atacadao .
+
+# Compilar com Maven
+RUN mvn clean package -DskipTests
+
+# Baixar e instalar WildFly
+WORKDIR /opt
+RUN curl -L https://github.com/wildfly/wildfly/releases/download/${WILDFLY_VERSION}/wildfly-${WILDFLY_VERSION}.zip -o wildfly.zip && \
+    unzip wildfly.zip && \
+    mv wildfly-${WILDFLY_VERSION} wildfly && \
+    rm wildfly.zip
+
+# Copiar WAR para WildFly
+RUN cp /app/target/*.war $WILDFLY_HOME/standalone/deployments/
+
+# Criar volume para logs acessíveis no host
+VOLUME ["/opt/wildfly/standalone/log"]
+
+# Expor a porta
+EXPOSE 8080
+
+# Entrypoint para iniciar WildFly
+ENTRYPOINT ["sh", "-c", "/opt/wildfly/bin/standalone.sh -b 0.0.0.0"]
+

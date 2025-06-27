@@ -1,0 +1,34 @@
+version: "3.8"
+services:
+  postgres:
+    image: postgres
+    container_name: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_DB: atacadao
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./dump.sql:/docker-entrypoint-initdb.d/dump.sql
+    
+    networks:
+      - appnet
+
+  wildfly:
+    build: .
+    container_name: server
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    volumes:
+      - ./logs:/opt/wildfly/standalone/log
+    networks:
+      - appnet
+
+networks:
+  appnet:
+    driver: bridge
+
