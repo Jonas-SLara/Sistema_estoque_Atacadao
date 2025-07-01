@@ -4,16 +4,16 @@ COMO USAR ESTE PROJETO
 
 # Como executar as dependencia para o projeto
     1. execute na raiz do projeto onde esta o docker compose:
-    ```
+```
     docker compose up -d
-    ```
+```
     2. para parar execute
-    ```
+```
     docker compose down
-    ```
+```
     3. OPCIONAL
     adicionar o pgadmin como serviço adicione no docker compose:
-    ```
+ ```
     pgadmin:
     image: dpage/pgadmin4
     container_name: pgadmin
@@ -25,7 +25,7 @@ COMO USAR ESTE PROJETO
       - "5050:80"
     depends_on:
       - postgres
-    ```
+ ```
 
 ## Compilar e Empacotar o projeto para war usando Maven CLI
     ```
@@ -34,13 +34,13 @@ COMO USAR ESTE PROJETO
 
 # como exportar e importar o banco de dados para o projeto
     1. Exportar
-    ```
+```
     docker exec -t postgres pg_dump -U <usuario_do_banco> <nome_do_banco> > dump.sql
-    ```
+```
     2. Importar
-    ```
+```
     docker exec -i postgres psql -U <usuario_do_banco> <nome_do_banco> < dump.sql 
-    ```
+```
 
 * lembre-se de estar na raiz do projeto
 
